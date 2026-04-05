@@ -7,7 +7,7 @@ const Left = () => {
       <img
         src={logo}
         alt="logo"
-        className="h-full w-auto object-contain"
+        className="h-full w-auto object-cover"
       />
     </div>
   );

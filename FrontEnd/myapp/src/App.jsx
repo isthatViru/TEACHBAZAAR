@@ -5,6 +5,7 @@ import Courses from "./pages/Courses";
 import Teach from "./pages/Teach";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
 
       <Routes>
+          <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/teach" element={<Teach />} />
         <Route path="/community" element={<Community />} />
