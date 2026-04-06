@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../components/Home/Hero/Hero'
 import Stats from '../components/Home/Stats/Stats'
+import Home_Categories from '../components/Home/Categories/Home_Categories'
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
     
        <Hero/>
        <Stats/>
+       <Home_Categories/>
     </>
  
   )
