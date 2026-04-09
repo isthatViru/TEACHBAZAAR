@@ -6,6 +6,7 @@ import Teach from "./pages/Teach";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/community" element={<Community />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-
+  <Footer/>
     </BrowserRouter>
   );
 }

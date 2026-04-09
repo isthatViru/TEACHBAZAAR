@@ -8,15 +8,15 @@ export const Course_Cards_Header = () => {
         {/* Tag */}{" "}
         <div className="w-fit text-sm font-semibold bg-indigo-100 text-indigo-600 px-4  rounded-full">
           {" "}
-          What do you want to learn?{" "}
+         Featured learning{" "}
         </div>{" "}
         {/* Heading */}{" "}
         <h2 className="text-3xl md:text-4xl font-bold leading-tight text-gray-900">
           {" "}
-          Explore Our Top{" "}
+         Discover World's Best{" "}
           <span className="text-indigo-600 underline decoration-[#F59E0B] decoration-4 underline-offset-4">
             {" "}
-            Categories{" "}
+            Courses{" "}
           </span>{" "}
         </h2>{" "}
       </div>{" "}
