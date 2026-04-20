@@ -1,7 +1,7 @@
 import React from 'react'
 import Cards from './Cards'
 
-const left = () => {
+const CardsMain = () => {
   return (
     <div>
       <Cards/>
@@ -9,4 +9,4 @@ const left = () => {
   )
 }
 
-export default left
+export default CardsMain

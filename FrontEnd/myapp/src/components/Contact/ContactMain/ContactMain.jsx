@@ -1,11 +1,10 @@
 import React from 'react'
-import Right from './Right/Right'
-import Left from './Left/left'
+import CardsMain from './Cards/CardsMain'
+
 const ContactMain = () => {
   return (
     <div>
-        <Left/>
-        <Right/>
+       <CardsMain/>
     </div>
   )
 }
