@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Right = () => {
+const ContactForm = () => {
   return (
     <div>Right</div>
   )
 }
 
-export default Right
+export default ContactForm

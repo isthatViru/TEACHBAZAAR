@@ -3,7 +3,7 @@ import CardsMain from './Cards/CardsMain'
 
 const ContactMain = () => {
   return (
-    <div>
+    <div className='p-5 flex flex-col items-center' >
        <CardsMain/>
     </div>
   )

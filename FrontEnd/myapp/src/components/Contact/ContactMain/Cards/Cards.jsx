@@ -2,12 +2,13 @@ import React from "react";
 
 const Cards = () => {
   return (
-    <div className="flex flex-col gap-6 w-full max-w-xl">
-
+    <div className="flex items-center flex-wrap w-full">
+  <div className="flex items-center gap-8 mb-5">
+    
       {/* Card 1 */}
       <div className="flex items-start gap-4 p-6 bg-white border rounded-2xl shadow-sm hover:shadow-md transition">
 
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
+        <div className="w-8 h-10 flex items-center justify-center bg-blue-100 rounded-xl">
           <i className="fa-solid fa-phone text-blue-600 text-lg"></i>
         </div>
 
@@ -35,7 +36,7 @@ const Cards = () => {
       {/* Card 2 */}
       <div className="flex items-start gap-4 p-6 bg-white border rounded-2xl shadow-sm hover:shadow-md transition">
 
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
+        <div className="w-8 h-10 flex items-center justify-center bg-blue-100 rounded-xl">
           <i className="fa-solid fa-envelope text-blue-600 text-lg"></i>
         </div>
 
@@ -59,11 +60,39 @@ const Cards = () => {
 
       </div>
 
-
-      {/* Card 3 */}
+  {/* Card 3 */}
       <div className="flex items-start gap-4 p-6 bg-white border rounded-2xl shadow-sm hover:shadow-md transition">
 
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
+        <div className="w-8 h-10 flex items-center justify-center bg-blue-100 rounded-xl">
+          <i className="fa-solid fa-headset text-blue-600 text-lg"></i>
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <h3 className="text-lg font-semibold text-gray-900">
+            Live Chat
+          </h3>
+
+          <p className="text-gray-600 text-sm">
+            Chat instantly with our support agents for quick help.
+          </p>
+
+          <span className="text-indigo-600 font-medium">
+            Start Chat →
+          </span>
+          
+          <span className="text-gray-500 text-sm">
+           We Are here for you 24/7 with our chat bot
+          </span>
+        </div>
+        
+      </div>
+
+  </div>
+
+      {/* Card 4 */}
+      <div className="flex items-start gap-4 p-6 m-auto bg-white border rounded-2xl shadow-sm hover:shadow-md transition">
+
+        <div className="w-8 h-10 flex items-center justify-center bg-blue-100 rounded-xl">
           <i className="fa-solid fa-chalkboard-user text-blue-600 text-lg"></i>
         </div>
 
@@ -84,29 +113,7 @@ const Cards = () => {
       </div>
 
 
-      {/* Card 4 */}
-      <div className="flex items-start gap-4 p-6 bg-white border rounded-2xl shadow-sm hover:shadow-md transition">
-
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl">
-          <i className="fa-solid fa-headset text-blue-600 text-lg"></i>
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <h3 className="text-lg font-semibold text-gray-900">
-            Live Chat
-          </h3>
-
-          <p className="text-gray-600 text-sm">
-            Chat instantly with our support agents for quick help.
-          </p>
-
-          <span className="text-indigo-600 font-medium">
-            Start Chat →
-          </span>
-        </div>
-
-      </div>
-
+    
     </div>
   );
 };
