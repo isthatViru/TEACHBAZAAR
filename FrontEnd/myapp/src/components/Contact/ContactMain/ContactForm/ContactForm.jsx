@@ -1,205 +1,139 @@
-import React, { useState } from "react";
+import React from "react";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    role: "",
-    topic: "",
-    message: "",
-    consent: false,
-  });
-
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const validate = () => {
-    let newErrors = {};
-
-    if (!formData.firstName.trim())
-      newErrors.firstName = "First name is required";
-
-    if (!formData.lastName.trim())
-      newErrors.lastName = "Last name is required";
-
-    if (!formData.email.includes("@"))
-      newErrors.email = "Valid email is required";
-
-    if (!/^[0-9]{10}$/.test(formData.phone))
-      newErrors.phone = "Phone must be 10 digits";
-
-    if (!formData.role)
-      newErrors.role = "Please select student or teacher";
-
-    if (!formData.topic)
-      newErrors.topic = "Please select a topic";
-
-    if (!formData.message.trim())
-      newErrors.message = "Message cannot be empty";
-
-    if (!formData.consent)
-      newErrors.consent = "You must agree before submitting";
-
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const validationErrors = validate();
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length !== 0) return;
-
-    try {
-      setLoading(true);
-      setSuccess("");
-
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSuccess("Message sent successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        role: "",
-        topic: "",
-        message: "",
-        consent: false,
-      });
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <div className="w-full">
-      <div className="bg-white shadow-lg rounded-xl p-8 w-full">
-        <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
+    <div className="w-full flex justify-center">
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="w-full max-w-5xl bg-white/80 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl p-8">
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="firstName">First Name</label>
-              <input
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
+        {/* Header */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Let’s Talk 👋
+          </h2>
+          <p className="text-gray-500 mt-1">
+            Fill out the form and we’ll get back to you soon.
+          </p>
+        </div>
+
+        {/* Horizontal Layout */}
+        <form className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          {/* LEFT SIDE */}
+          <div className="space-y-5">
+
+            {/* Names */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm text-gray-600">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm text-gray-600">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
             </div>
 
+            {/* Email */}
             <div>
-              <label htmlFor="lastName">Last Name</label>
+              <label className="text-sm text-gray-600">Email</label>
               <input
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                className="w-full border px-3 py-2 rounded"
+                type="email"
+                name="email"
+                id="email"
+                className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500"
               />
-              {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
             </div>
+
+            {/* Phone */}
+            <div>
+              <label className="text-sm text-gray-600">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Role */}
+            <div>
+              <label className="text-sm text-gray-600 mb-2 block">
+                I am
+              </label>
+              <div className="flex gap-4">
+                <label className="flex items-center gap-2 px-4 py-2 border rounded-xl cursor-pointer hover:bg-blue-50">
+                  <input type="radio" name="role" id="student" />
+                  Student
+                </label>
+                <label className="flex items-center gap-2 px-4 py-2 border rounded-xl cursor-pointer hover:bg-blue-50">
+                  <input type="radio" name="role" id="teacher" />
+                  Teacher
+                </label>
+              </div>
+            </div>
+
+            {/* Topic */}
+            <div>
+              <label className="text-sm text-gray-600">Topic</label>
+              <select
+                name="topic"
+                id="topic"
+                className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="courses">Courses</option>
+                <option value="support">Support</option>
+                <option value="billing">Billing</option>
+              </select>
+            </div>
+
           </div>
 
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-          />
+          {/* RIGHT SIDE */}
+          <div className="flex flex-col space-y-5">
 
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-          />
+            {/* Message */}
+            <div className="flex-1">
+              <label className="text-sm text-gray-600">Your Message</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="10"
+                className="w-full mt-1 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 h-full"
+              ></textarea>
+            </div>
 
-          <div className="flex gap-4">
-            <label>
-              <input
-                type="radio"
-                name="role"
-                value="student"
-                onChange={handleChange}
-              /> Student
-            </label>
+            {/* Checkbox */}
+            <div className="flex items-start gap-2 text-sm text-gray-600">
+              <input type="checkbox" id="consent" name="consent" className="mt-1" />
+              <label htmlFor="consent">
+                I agree to the Privacy Policy and Terms of Service.
+              </label>
+            </div>
 
-            <label>
-              <input
-                type="radio"
-                name="role"
-                value="teacher"
-                onChange={handleChange}
-              /> Teacher
-            </label>
+            {/* Button */}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold shadow-md hover:scale-[1.02] transition"
+            >
+              Send Message
+            </button>
+
           </div>
 
-          <select
-            id="topic"
-            name="topic"
-            value={formData.topic}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-          >
-            <option value="">Select topic</option>
-            <option value="courses">Courses</option>
-            <option value="support">Support</option>
-          </select>
-
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-          />
-
-          <label className="flex gap-2">
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-            />
-            I agree to terms
-          </label>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-
-          {success && <p className="text-green-600">{success}</p>}
         </form>
       </div>
     </div>

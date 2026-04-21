@@ -1,11 +1,15 @@
 import React from "react";
-import CardsMain from "./Cards/CardsMain";
+import Cards from "./Cards/Cards";
+import ContactForm from "./ContactForm/ContactForm";
+import FAQ from "../FAQ/FAQ";
 
 const ContactMain = () => {
   return (
-    <div>
-      <CardsMain />
-    </div>
+   <div>
+    <Cards/>
+    <ContactForm/>
+    <FAQ/>
+   </div>
   );
 };
 
