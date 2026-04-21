@@ -5,7 +5,7 @@ import FAQ from "../FAQ/FAQ";
 
 const ContactMain = () => {
   return (
-   <div>
+   <div className="flex flex-col px-6 py-8 gap-8 bg-linear-to-b from-gray-50 to-white">
     <Cards/>
     <ContactForm/>
     <FAQ/>
