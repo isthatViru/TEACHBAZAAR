@@ -7,7 +7,7 @@ const ContactForm = () => {
       <div className="w-full max-w-5xl bg-white/80 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl p-8">
 
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900">
             Let’s Talk 👋
           </h2>
@@ -103,7 +103,7 @@ const ContactForm = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col space-y-5">
+          <div className="flex flex-col space-y-10">
 
             {/* Message */}
             <div className="flex-1">

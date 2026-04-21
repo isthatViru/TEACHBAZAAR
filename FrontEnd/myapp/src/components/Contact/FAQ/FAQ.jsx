@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
@@ -36,8 +37,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="w-full py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
-
+    <div className="w-full py-16 px-4">
       <div className="max-w-3xl mx-auto">
 
         {/* Heading */}
@@ -50,41 +50,57 @@ const FAQ = () => {
           </p>
         </div>
 
-        {/* FAQ List */}
+        {/* FAQ */}
         <div className="space-y-4">
+          {faqData.map((item, index) => {
+            const isOpen = openIndex === index;
 
-          {faqData.map((item, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-2xl bg-white shadow-sm overflow-hidden transition"
-            >
-
-              {/* Question */}
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center p-5 text-left"
-              >
-                <span className="font-medium text-gray-900">
-                  {item.question}
-                </span>
-
-                <span className="text-blue-600 text-xl">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-              {/* Answer */}
+            return (
               <div
-                className={`px-5 pb-5 text-gray-600 text-sm transition-all duration-300 ${
-                  openIndex === index ? "block" : "hidden"
-                }`}
+                key={index}
+                className="border border-gray-200 rounded-2xl bg-white shadow-sm overflow-hidden"
               >
-                {item.answer}
+
+                {/* Question */}
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full flex justify-between items-center p-5 text-left"
+                >
+                  <span className="font-medium text-gray-900">
+                    {item.question}
+                  </span>
+
+                  {/* Animated Icon */}
+                  <motion.span
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-blue-600 text-xl"
+                  >
+                    ⌄
+                  </motion.span>
+                </button>
+
+                {/* Answer with animation */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 text-gray-600 text-sm">
+                        {item.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
               </div>
-
-            </div>
-          ))}
-
+            );
+          })}
         </div>
 
       </div>
