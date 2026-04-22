@@ -1,8 +1,10 @@
 import React from 'react'
-
+import ComingSoonPage from '../components/Placeholder/ComingSoonPage'
 const Courses = () => {
   return (
-    <div>Courses</div>
+    <div>
+      <ComingSoonPage/>
+    </div>
   )
 }
 
