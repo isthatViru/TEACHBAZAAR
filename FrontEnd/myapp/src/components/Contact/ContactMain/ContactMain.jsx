@@ -2,6 +2,7 @@ import React from "react";
 import Cards from "./Cards/Cards";
 import ContactForm from "./ContactForm/ContactForm";
 import FAQ from "../FAQ/FAQ";
+import Map from "../Map/map";
 
 const ContactMain = () => {
   return (
@@ -9,6 +10,12 @@ const ContactMain = () => {
     <Cards/>
     <ContactForm/>
     <FAQ/>
+       
+     <div className="flex mb-5">
+        <Map/>
+     </div>
+
+   
    </div>
   );
 };
