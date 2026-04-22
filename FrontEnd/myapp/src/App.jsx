@@ -7,7 +7,7 @@ import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
-
+import "leaflet/dist/leaflet.css";
 function App() {
   return (
     <BrowserRouter>
