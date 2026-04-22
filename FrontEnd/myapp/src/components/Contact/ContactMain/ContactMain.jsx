@@ -6,14 +6,14 @@ import Map from "../Map/map";
 
 const ContactMain = () => {
   return (
-   <div className="flex flex-col px-6 py-8 gap-8 bg-linear-to-b from-gray-50 to-white">
+   <div className="flex flex-col px-6 py-8 gap-8 bg-gradient-to-b ✅ from-gray-50 to-white">
     <Cards/>
     <ContactForm/>
     <FAQ/>
        
-     <div className="flex mb-5">
+   
         <Map/>
-     </div>
+     
 
    
    </div>

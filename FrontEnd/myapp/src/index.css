@@ -1,5 +1,12 @@
 @import "tailwindcss";
 /* Fix Leaflet z-index issue */
+/* Force Leaflet to stay behind UI elements */
 .leaflet-container {
-  z-index: 0 !important;
+  z-index: 0;
+}
+
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0 ;
 }

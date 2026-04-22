@@ -2,6 +2,9 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const Map = () => {
+  const lat = 19.0760;
+  const lng = 72.8777;
+
   return (
     <div className="w-full mt-16 px-4">
 
@@ -14,22 +17,46 @@ const Map = () => {
           </h3>
         </div>
 
-        {/* Simple Card */}
-        <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+        {/* Map Card */}
+        <div className="relative border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white">
 
+          {/* Map */}
           <MapContainer
-            center={[19.0760, 72.8777]}
+            center={[lat, lng]}
             zoom={13}
             className="w-full h-[400px]"
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-            <Marker position={[19.0760, 72.8777]}>
+            <Marker position={[lat, lng]}>
               <Popup>
                 TeachBazaar Office 📍
               </Popup>
             </Marker>
           </MapContainer>
+
+          {/* Address Overlay */}
+          <div className="absolute bottom-4 left-4 bg-white rounded-xl shadow-md border px-4 py-3 max-w-xs">
+
+            <p className="text-sm font-semibold text-gray-900">
+              TeachBazaar
+            </p>
+
+            <p className="text-xs text-gray-600 mt-1">
+              Mumbai, Maharashtra, India
+            </p>
+
+            {/* Directions Button */}
+            <a
+              href={`https://www.google.com/maps?q=${lat},${lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 text-sm font-medium text-blue-600 hover:underline"
+            >
+              Get Directions →
+            </a>
+
+          </div>
 
         </div>
 
