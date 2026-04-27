@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-[#0F172A] w-full">
@@ -17,10 +17,11 @@ const Hero = () => {
 
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4">
+        <Link to='/CourseUpload'>
         <button className="bg-amber-400 hover:bg-amber-500 text-black font-semibold px-6 py-3 rounded-lg transition">
           Start Teaching — it's free
         </button>
-
+</Link>
         <button className="border border-gray-500 hover:bg-gray-100 px-6 py-3 rounded-lg text-[#E2E8F0] hover:text-[#475569] font-medium transition">
           Watch how it works
         </button>
